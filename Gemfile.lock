@@ -68,6 +68,8 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.10.0)
     execjs (2.7.0)
+    faker (2.19.0)
+      i18n (>= 1.6, < 2)
     ffi (1.15.4)
     font-awesome-sass (5.12.0)
       sassc (>= 1.11)
@@ -206,6 +208,7 @@ DEPENDENCIES
   autoprefixer-rails (= 10.2.5)
   bootsnap (>= 1.4.2)
   byebug
+  faker
   font-awesome-sass (~> 5.12.0)
   jbuilder (~> 2.7)
   listen (~> 3.2)
