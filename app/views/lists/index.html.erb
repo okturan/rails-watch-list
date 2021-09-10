@@ -1,8 +1,7 @@
 
 <div class="container">
   <h1>Our Watch Lists</h1>
-
-  <% unless @lists.nil? %>
+  <% unless @lists.empty? %>
     <% @lists.each do |list| %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
         <%= link_to list.name, list %>
