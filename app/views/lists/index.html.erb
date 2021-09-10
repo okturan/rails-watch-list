@@ -1,10 +1,15 @@
 
 <div class="container">
   <h1>Our Watch Lists</h1>
-  <% @lists.each do |list| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
-      <%= link_to list.name, list %>
-    </div>
+
+  <% unless @lists.nil? %>
+    <% @lists.each do |list| %>
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
+        <%= link_to list.name, list %>
+      </div>
+    <% end %>
+    <% else %>
+    <p>There are no lists to show here</p>
   <% end %>
 
   <%= link_to "Create a new list!", new_list_path, class: "btn btn-flat" %>
