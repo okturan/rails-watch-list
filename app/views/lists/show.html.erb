@@ -6,8 +6,9 @@
   <li><%= bookmark.movie.title %></li>
   <p><%= bookmark.comment %></p>
   <p><%= link_to "X", bookmark_path(bookmark), method: :delete %></p>
+  <%= cl_image_tag bookmark.photo.key, height: 300, width: 400, crop: :fill %>
   <% end %>
-  
+
   <%= link_to 'New bookmark', new_list_bookmark_path(@list) %>
   <%= link_to 'Back to main menu', lists_path %>
 </p>
