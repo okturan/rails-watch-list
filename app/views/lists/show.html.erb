@@ -1,15 +1,18 @@
-<p>
-  <strong>List name:</strong>
-  <%= @list.name %> |
+<div class='container'>
+<h1><%= @list.name %></h1>
 
-  <% @list.bookmarks.each do |bookmark| %>
-  <li><%= bookmark.movie.title %></li>
-  <p><%= bookmark.comment %></p>
-  <p><%= link_to "X", bookmark_path(bookmark), method: :delete %></p>
-  <%= cl_image_tag bookmark.photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
+<% @list.bookmarks.each do |bookmark| %>
+  <div class="card-product">
+    <%= cl_image_tag bookmark.photo.key, height: 300, width: 400, crop: :fill %>
+    <div class="card-product-infos">
+      <h2><%= bookmark.movie.title %></h2>
+      <p><%= bookmark.comment %></p>
+      <p><%= link_to "🗑", bookmark_path(bookmark), method: :delete %></p>
 
-  <%= link_to 'New bookmark', new_list_bookmark_path(@list) %>
-  <%= link_to 'Back to main menu', lists_path %>
-</p>
+    </div>
+  </div>
+<% end %>
 
+<%= link_to 'New bookmark', new_list_bookmark_path(@list), class: "btn btn-flat" %> |
+<%= link_to 'Back to Lists', lists_path %>
+</div>
