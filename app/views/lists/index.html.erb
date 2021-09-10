@@ -1,9 +1,11 @@
 
 <div class="container">
+
   <h1>Our Watch Lists</h1>
+
   <% unless @lists.empty? %>
     <% @lists.each do |list| %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= cl_image_path list.photo.key %>)">
+      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<% if list.photo.attached? %><%= cl_image_path list.photo.key %><% end %>)">
         <%= link_to list.name, list %>
       </div>
     <% end %>
