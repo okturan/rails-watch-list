@@ -1,18 +1,21 @@
 <div class='container'>
 <h1><%= @list.name %></h1>
 
-<% @list.bookmarks.each do |bookmark| %>
-  <div class="card-product">
-    <%= cl_image_tag bookmark.photo.key, height: 300, width: 400, crop: :fill %>
-    <div class="card-product-infos">
-      <h2><%= bookmark.movie.title %></h2>
-      <p><%= bookmark.comment %></p>
-      <p><%= link_to "🗑", bookmark_path(bookmark), method: :delete %></p>
-
+<% unless @list.bookmarks.empty? %>
+  <% @list.bookmarks.each do |bookmark| %>
+    <div class="card-product">
+      <% if bookmark.photo.attached? %><%= cl_image_tag bookmark.photo.key, height: 300, width: 400, crop: :fill %><% end %>
+        <div class="card-product-infos">
+          <h2><%= bookmark.movie.title %></h2>
+          <p><%= bookmark.comment %></p>
+          <p><%= link_to "🗑", bookmark_path(bookmark), method: :delete %></p>
+        </div>
     </div>
-  </div>
+  <% end %>
+<% else %>
+      <p>There are no bookmarks to show here</p>
 <% end %>
 
 <%= link_to 'New bookmark', new_list_bookmark_path(@list), class: "btn btn-flat" %> |
-<%= link_to 'Back to Lists', lists_path %>
+<%= link_to 'Back to Lists', root_path%>
 </div>
