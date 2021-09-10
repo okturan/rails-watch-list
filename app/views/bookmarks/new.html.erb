@@ -1,0 +1,9 @@
+<h1>Bookmarks#new</h1>
+
+<%= simple_form_for [@list, @bookmark] do |f| %>
+    <%= f.input :comment %>
+    <%= f.association :movie %>
+    <%= f.submit %>
+<% end %>
+
+        <td><%= link_to 'delete', bookmark_path(bookmark), method: :delete %></td>

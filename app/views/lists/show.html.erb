@@ -1,0 +1,13 @@
+<p>
+  <strong>List name:</strong>
+  <%= @list.name %> |
+
+  <% @list.bookmarks.each do |bookmark| %>
+  <li><%= bookmark.movie.title %></li>
+  <p><%= bookmark.comment %></p>
+  <p><%= link_to "X", bookmark_path(bookmark), method: :delete %></p>
+  <% end %>
+  
+  <%= link_to 'New bookmark', new_list_bookmark_path(@list) %>
+</p>
+
