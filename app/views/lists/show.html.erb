@@ -4,9 +4,11 @@
 <% unless @list.bookmarks.empty? %>
   <% @list.bookmarks.each do |bookmark| %>
     <div class="card-product">
-      <% if bookmark.photo.attached? %><%= cl_image_tag bookmark.photo.key, height: 300, width: 400, crop: :fill %><% end %>
+      <%= cl_image_tag bookmark.movie.poster_url, height: 300, width: 400, crop: :fill %>
         <div class="card-product-infos">
           <h2><%= bookmark.movie.title %></h2>
+          <p><%= bookmark.movie.overview %></p>
+          <p><%= bookmark.movie.rating %></p>
           <p><%= bookmark.comment %></p>
           <p><%= link_to "🗑", bookmark_path(bookmark), method: :delete %></p>
         </div>
